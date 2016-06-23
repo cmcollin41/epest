@@ -1,0 +1,41 @@
+
+  <div class="container marginTopL">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-default">
+          <div class="panel-heading center" style="padding: 0px;">
+            <%= image_tag('ranger_flat.png', width: 250) %>
+          </div>
+          <div class="panel-body">
+            <%= form_for @lead do |f| %>
+              <div class="form-group">
+                <%= f.text_field :street_address, id: "street-address", placeholder: "Street Address", class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.text_field :city, id: "city", placeholder: "City", class: "form-control" %>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+               		<div class="form-group">
+                		<%= f.text_field :st, id: "state", placeholder: "State", class: "form-control" %>
+              		</div>
+              	</div>
+              	<div class="col-sm-6">
+  	            	<div class="form-group">
+  	              	<%= f.text_field :zip, id: "zip",  placeholder: "Zip", class: "form-control" %>
+  	            	</div>
+              	</div>
+              </div>
+              <div class="form-group">
+                <%= f.submit "Get a Quote", class: "btn btn-success btn-lg btn-block" %>
+              </div>
+            <% end %>
+          </div>
+        <div class="panel-footer">
+          <h6 style="text-align: center; color: #9e9e9e">We currently only service Las Vegas.</h6>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

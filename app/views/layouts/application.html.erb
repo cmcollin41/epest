@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ranger Pest</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', '//d79i1fxsrar4t.cloudfront.net/jquery.liveaddress/3.0/jquery.liveaddress.min.js', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="center">
+	<%= flash_messages %>
+</div>
+<%#= render partial: "shared/navbar" %>
+
+<%= yield %>
+
+</body>
+</html>

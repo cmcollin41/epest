@@ -1,0 +1,78 @@
+
+<div class="container marginTopL marginBottomL">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="panel panel-default">
+      	<div class="panel-heading center" style="padding: 0px;">
+					 <%= image_tag('ranger_flat.png', width: 250) %>
+      	</div>
+        <div class="panel-body">
+          <div class="center ">
+            <h2><span class="label label-success">$ <%= @price %>/Month</span></h2>
+            <h6>*Initial Service is $199</h6>
+        	  <h3>Your property is <%= @acres %> Acres</h3>
+          </div>
+          <div class="row center marginTopS">
+            <h5 style="text-decoration: underline;">Our service:</h5>
+            <div class="col-md-4">
+              <h5>Exterior Spray</h5>
+            </div>
+            <div class="col-md-4">
+              <h5>Interior Spray</h5>
+            </div>
+            <div class="col-md-4">
+              <h5>Eaves Treatment</h5>
+            </div>
+            <div class="col-md-4">
+              <h5>Water Boxes</h5>
+            </div>
+            <div class="col-md-4">
+              <h5>Child & Pet Friendly</h5>
+            </div>
+            <div class="col-md-4">
+              <h5>100% Guarantee</h5>
+            </div>
+          </div>
+          <h4 class="center marginTop">Enter your phone number for a <em>free</em> initial service:</h4>
+				  <div class="form-group marginTopS">
+            <%= form_for @lead do |f| %>
+            <div class="form-group">
+              <%= f.text_field :phone, :class => 'form-control', placeholder: "Your Phone Number" %>
+              </br>
+              <%= f.submit "Get It!", class: 'btn btn-success btn-block' %>
+            </div>
+            <% end %>
+          </div>
+          <h6>Or</h6>
+          <div class="row">
+            <div class="col-sm-2">
+              <%= image_tag('ranger_flat.png', width: 75) %>
+            </div>
+            <div class="col-sm-10">
+              <h4>Call Vance at (702) 569-3888</h4>
+              <h5><em>Owner/Operator</em></h5>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <h6 style="text-align: center; color: #9e9e9e">We currently only service Las Vegas.</h6>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-md-8 col-md-offset-2 marginTop">
+    	<div class="col-md-4">
+				<%#= image_tag('scorpion.jpg', width: 200, style: "margin-top: -25px") %>
+			</div>
+			<div class="col-md-4">	
+				<%#= image_tag('cockroach.jpg', width: 200, style: "margin-top: -25px") %>
+			</div>
+			<div class="col-md-4">
+				<%#= image_tag('black-widow.jpg', width: 200, style: "margin-top: -25px") %>
+			</div>
+		</div> -->
+  </div>
+</div>
+
+<!-- <p><%#= @lead.street_address %></p>
+<p><%#= @lead.city %>,<%#= @lead.st %></p>
+<p><%#= @lead.zip %></p> -->
