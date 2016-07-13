@@ -28,7 +28,10 @@
 }
 
 .marginTopL {
-	margin-top: 100px;
+	margin-top: 50px;
+	@media screen and (max-width: 800px){
+		margin-top: 25px;
+	}
 }
 
 .marginBottomL {

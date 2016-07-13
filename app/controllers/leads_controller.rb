@@ -43,7 +43,8 @@ class LeadsController < ApplicationController
 
     @twilio_number = ENV['TWILIO_NUMBER']
     @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
-    reminder = "You have a new lead! They live at #{@lead.street_address}, #{@lead.city} #{@lead.zip}. Their phone number is #{@lead.phone}. They have been quoted at $#{@lead.quote}/month."
+    reminder = "You have a new lead! They live at #{@lead.street_address}, #{@lead.city} #{@lead.st}, #{@lead.zip}. Their phone number is #{@lead.phone}. They have been quoted at $#{@lead.quote}/month."
+    coupon_message = "Hello, your monthly estimate is #{@lead.quote}. Contact Vance at 702-499-9802 and redeem promo code 'INITIAL3777' to get your free initial service - a $200 value."
     message1 = @client.account.messages.create(
       :from => @twilio_number,
       :to => 7025693888,
@@ -58,6 +59,12 @@ class LeadsController < ApplicationController
       :from => @twilio_number,
       :to => 8018507800,
       :body => reminder,
+    )
+
+    message4 = @client.account.messages.create(
+      :from => @twilio_number,
+      :to => @lead.phone,
+      :body => coupon_message,
     )
 
   end
