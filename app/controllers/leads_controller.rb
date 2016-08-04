@@ -11,6 +11,22 @@ class LeadsController < ApplicationController
   		render :index
   	end
 
+    property = Rubillow::PropertyDetails.deep_search_results({ address: @lead.street_address, citystatezip: @lead.zip })
+    sqft = property.lot_size_square_feet
+    @acres = (sqft.to_f / 43560).round(2)
+
+    if @acres <= 0.25
+      @price = 32.5
+    elsif @acres >= 0.26 && @acres <= 0.5
+      @price = 35
+    elsif @acres >= 0.51 && @acres <= 1
+      @price = 37.25
+    else
+      @price = 40
+    end
+    @lead.quote = @price
+    @lead.save
+
     @twilio_number = ENV['TWILIO_NUMBER']
     @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
     reminder = "You have a new lead! They live at #{@lead.street_address}, #{@lead.city} #{@lead.st}, #{@lead.zip}. They have been quoted at $#{@lead.quote}/month."
